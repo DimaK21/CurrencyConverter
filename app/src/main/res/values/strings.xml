@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Currency Converter</string>
+    <string name="check_connection">Проверьте подключение к сети</string>
+    <string name="wrong_request">Неверный запрос</string>
 </resources>

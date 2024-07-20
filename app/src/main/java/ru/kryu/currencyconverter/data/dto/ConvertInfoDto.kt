@@ -1,7 +1,6 @@
 package ru.kryu.currencyconverter.data.dto
 
-
-import com.google.gson.annotations.SerializedName
+import ru.kryu.currencyconverter.data.network.Response
 
 data class ConvertInfoDto(
     val date: String,
@@ -10,7 +9,7 @@ data class ConvertInfoDto(
     val query: Query,
     val result: Double,
     val success: Boolean
-) {
+) : Response() {
     data class Info(
         val rate: Double,
         val timestamp: Int
