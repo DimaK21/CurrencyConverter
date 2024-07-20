@@ -2,4 +2,7 @@
     <string name="app_name">Currency Converter</string>
     <string name="check_connection">Проверьте подключение к сети</string>
     <string name="wrong_request">Неверный запрос</string>
+    <string name="converter">Ковертер валют</string>
+    <string name="to_convert">конвертировать</string>
+    <string name="zero">0.0</string>
 </resources>
