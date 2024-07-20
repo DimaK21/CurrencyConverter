@@ -1,6 +1,7 @@
 package ru.kryu.currencyconverter.presentation
 
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
@@ -29,6 +30,33 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        initSpinner()
+        subscribeForState()
+        binding.button.setOnClickListener {
+            val userInput = binding.editText.text.toString().toDoubleOrNull()
+            if (userInput != null) {
+                viewModel.convert(
+                    to = binding.spinnerTo.selectedItem.toString(),
+                    from = binding.spinnerFrom.selectedItem.toString(),
+                    amount = userInput
+                )
+            }
+        }
+    }
+
+    private fun initSpinner() {
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.currency_array,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            binding.spinnerTo.adapter = adapter
+            binding.spinnerFrom.adapter = adapter
+        }
+    }
+
+    private fun subscribeForState() {
         lifecycleScope.launch {
             viewModel.screenState.collect { state ->
                 when (state) {
@@ -46,17 +74,6 @@ class MainActivity : AppCompatActivity() {
                         binding.textViewResult.text = getString(R.string.zero)
                     }
                 }
-            }
-        }
-
-        binding.button.setOnClickListener {
-            val userInput = binding.editText.text.toString().toDoubleOrNull()
-            if (userInput != null) {
-                viewModel.convert(
-                    to = binding.spinnerTo.selectedItem.toString(),
-                    from = binding.spinnerFrom.selectedItem.toString(),
-                    amount = userInput
-                )
             }
         }
     }

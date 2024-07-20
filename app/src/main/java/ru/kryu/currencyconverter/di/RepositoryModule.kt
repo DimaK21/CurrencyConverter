@@ -6,6 +6,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import ru.kryu.currencyconverter.data.ConvertRepositoryImpl
 import ru.kryu.currencyconverter.data.network.NetworkClient
+import ru.kryu.currencyconverter.domain.ConvertRepository
 import javax.inject.Singleton
 
 @Module
@@ -13,6 +14,6 @@ import javax.inject.Singleton
 class RepositoryModule {
     @Provides
     @Singleton
-    fun provideConvertRepository(networkClient: NetworkClient): ConvertRepositoryImpl =
+    fun provideConvertRepository(networkClient: NetworkClient): ConvertRepository =
         ConvertRepositoryImpl(networkClient)
 }

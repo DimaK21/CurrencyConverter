@@ -13,7 +13,7 @@ import ru.kryu.currencyconverter.data.network.NetworkClient
 import ru.kryu.currencyconverter.data.network.RetrofitNetworkClient
 import javax.inject.Singleton
 
-const val BASE_URL = "https://api.apilayer.com/exchangerates_data"
+const val BASE_URL = "https://api.apilayer.com/exchangerates_data/"
 
 @Module
 @InstallIn(SingletonComponent::class)
