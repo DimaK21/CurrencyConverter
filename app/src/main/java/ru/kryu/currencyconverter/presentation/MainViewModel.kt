@@ -1,6 +1,5 @@
 package ru.kryu.currencyconverter.presentation
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -9,7 +8,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import ru.kryu.currencyconverter.domain.ConvertRepository
 import ru.kryu.currencyconverter.util.Resource
-import ru.kryu.currencyconverter.util.SingleLiveEvent
 import javax.inject.Inject
 
 @HiltViewModel
@@ -21,9 +19,6 @@ class MainViewModel @Inject constructor(
         MutableStateFlow(ConvertState.Content(0.0))
     val screenState: StateFlow<ConvertState>
         get() = _screenState
-    private val _toastLiveData = SingleLiveEvent<String>()
-    val toastLiveData: LiveData<String>
-        get() = _toastLiveData
 
     fun convert(
         to: String,

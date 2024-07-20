@@ -7,7 +7,7 @@ import retrofit2.http.Query
 import ru.kryu.currencyconverter.data.dto.ConvertInfoDto
 
 // никому не говори, что он здесь ;-)
-const val API_KEY = "ZzjlwySXaUCQvypP16gPwHNGzcLYoM78"
+const val API_KEY = "McpnfNZiE341q3yVga1x0ONIpj1TNNhM"
 
 interface ApiService {
 
