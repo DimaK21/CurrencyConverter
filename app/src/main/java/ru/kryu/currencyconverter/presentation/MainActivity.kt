@@ -52,6 +52,7 @@ class MainActivity : AppCompatActivity() {
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             binding.spinnerTo.adapter = adapter
+            binding.spinnerTo.setSelection(1)
             binding.spinnerFrom.adapter = adapter
         }
     }
