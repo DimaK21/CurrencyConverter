@@ -1,6 +1,9 @@
 package ru.kryu.currencyconverter.presentation
 
 import android.os.Bundle
+import android.view.View
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -42,6 +45,7 @@ class MainActivity : AppCompatActivity() {
                 )
             }
         }
+        showSoftKeyboard(binding.editText)
     }
 
     private fun initSpinner() {
@@ -76,6 +80,13 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }
+        }
+    }
+
+    private fun showSoftKeyboard(view: View) {
+        if (view.requestFocus()) {
+            val imm = getSystemService(InputMethodManager::class.java)
+            imm?.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
         }
     }
 }
