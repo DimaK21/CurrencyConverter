@@ -1,4 +1,4 @@
-package ru.kryu.currencyconverter.app
+package ru.kryu.currencyconverter.presentation
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge

@@ -54,4 +54,5 @@ dependencies {
     implementation(libs.retrofit.converter)
     ksp(libs.hilt.compiler)
     implementation(libs.hilt.android)
+    implementation(libs.lifecycle.viewmodel)
 }
